@@ -379,9 +379,9 @@ h1, h2, h3, h4, h5 {
 }
 
 @keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 168, 0, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(20, 168, 0, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 168, 0, 0); }
+    0% { transform: scale(0.95); opacity: 0.7; }
+    70% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.95); opacity: 0.7; }
 }
 
 .hero-image-wrapper {
@@ -412,18 +412,19 @@ h1, h2, h3, h4, h5 {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 50%;
     height: 100%;
     background: linear-gradient(to right, transparent, rgba(255,255,255,0.03), transparent);
-    transform: skewX(-20deg);
+    transform: translateX(-200%) skewX(-20deg);
     animation: shine 5s infinite;
+    will-change: transform;
 }
 
 @keyframes shine {
-    0% { left: -100%; }
-    20% { left: 200%; }
-    100% { left: 200%; }
+    0% { transform: translateX(-200%) skewX(-20deg); }
+    20% { transform: translateX(400%) skewX(-20deg); }
+    100% { transform: translateX(400%) skewX(-20deg); }
 }
 
 .deco-circle {
